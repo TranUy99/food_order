@@ -1,10 +1,10 @@
-package com.example.foodorder
+package com.example.orderfood
 
 import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.foodorder.databinding.ActivityStartBinding
+import com.example.orderfood.databinding.ActivityStartBinding
 
 class StartActivity : AppCompatActivity() {
     private  val binding: ActivityStartBinding by lazy {
