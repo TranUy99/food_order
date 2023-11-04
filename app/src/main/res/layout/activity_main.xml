@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/cartButton"
         android:layout_width="40dp"
         android:layout_height="26dp"
         android:layout_marginTop="16dp"
@@ -39,7 +39,20 @@
         app:layout_constraintHorizontal_bias="0.382"
         app:layout_constraintStart_toEndOf="@+id/textView10"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/baseline_notifications_none_24" />
+        app:srcCompat="@drawable/baseline_shopping_cart_24" />
+
+    <com.nex3z.notificationbadge.NotificationBadge
+        android:id="@+id/notificationCartBadge"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintLeft_toRightOf="@+id/cartButton"
+        app:layout_constraintStart_toStartOf="@+id/cartButton"
+        app:nbMaxTextLength="2"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </com.nex3z.notificationbadge.NotificationBadge>
 
     <fragment
         android:id="@+id/fragmentContainerView"

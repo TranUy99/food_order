@@ -61,7 +61,7 @@ class AddfoodFragment : Fragment() {
     }
 
     private fun addFood(nameFood: String, priceFood: String, descriptionFood: String) {
-        Log.d("foodImageUri", foodImageUri.toString())
+
         if (foodImageUri != null) {
 
             val imageRef =

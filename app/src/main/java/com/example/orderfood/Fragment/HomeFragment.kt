@@ -1,6 +1,7 @@
 package com.example.orderfood.Fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,8 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.denzcoskun.imageslider.constants.ScaleTypes
 import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
-import com.example.foodordering.adaptar.MenuAdapter
-
+import com.example.foodordering.adaptar.PopuplarAdapter
 import com.example.orderfood.MenuBottomFragment
 import com.example.orderfood.R
 import com.example.orderfood.databinding.FragmentHomeBinding
@@ -39,6 +39,7 @@ class HomeFragment : Fragment() {
             val bottomSheetDialogFragment = MenuBottomFragment()
             bottomSheetDialogFragment.show(parentFragmentManager, "Test")
         }
+
         retrieveMenuItems()
         return binding.root
 
@@ -76,17 +77,28 @@ class HomeFragment : Fragment() {
         menuItemsRef.get().addOnCompleteListener { task ->
             if (task.isSuccessful) {
                 for (foodSnapshot in task.result!!) {
-                    val menuItem = foodSnapshot.toObject(FoodModel::class.java)
+                    val foodData = foodSnapshot.toObject(FoodModel::class.java)
+                    val menuItem = FoodModel(
+                        foodSnapshot.id,
+                        foodData.foodName,
+                        foodData.foodPrice,
+                        foodData.foodDescription,
+                        foodData.foodImage
+                    )
+
                     menuItems.add(menuItem)
                 }
+
+
                 setAdapter()
             }
         }
+
     }
 
     private fun setAdapter() {
 
-        val adapter = MenuAdapter(menuItems, requireContext())
+        val adapter = PopuplarAdapter(menuItems, requireContext())
         binding.PopularRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.PopularRecyclerView.adapter = adapter
     }

@@ -21,6 +21,7 @@ class MenuAdapter(
 
     override fun onBindViewHolder(holder: MenuViewHolder, position: Int) {
         holder.bind(position)
+
     }
 
     override fun getItemCount(): Int = menuItems.size
@@ -47,6 +48,8 @@ class MenuAdapter(
             val uri = Uri.parse(menuItem.foodImage)
             Glide.with(context).load(uri).into(binding.menuImage)
         }
+
+
     }
 }
 //        private fun openDetailsActivity(position: Int) {

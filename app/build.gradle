@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.gms.google-services'
+
 }
 
 android {
@@ -53,8 +54,11 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.6.2'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2'
 
-
-    //slider
+    //badge
+    implementation 'com.nex3z:notification-badge:1.0.4'
+    //Even bus
+    implementation("org.greenrobot:eventbus:3.3.1")
+    //gradle
     implementation 'com.github.denzcoskun:ImageSlideshow:0.1.2'
     implementation 'com.github.bumptech.glide:glide:4.16.0'
 
